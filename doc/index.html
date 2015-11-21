@@ -1,0 +1,1072 @@
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>  | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro:400,500,700' rel='stylesheet' type='text/css'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='container'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed md-show fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'></h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block field'
+            type='text' />
+          <div id='toc'>
+              <a
+                href='#TyrannoServe'
+                class='block bold'>
+                TyrannoServe
+              </a>
+                <a
+                  href='#TyrannoServe.addListener'
+                  class='regular block'>
+                  #addListener
+                </a>
+                <a
+                  href='#TyrannoServe.addPaths'
+                  class='regular block'>
+                  #addPaths
+                </a>
+                <a
+                  href='#TyrannoServe.addRoute'
+                  class='regular block'>
+                  #addRoute
+                </a>
+                <a
+                  href='#TyrannoServe.badRequestDefault'
+                  class='regular block'>
+                  #badRequestDefault
+                </a>
+                <a
+                  href='#TyrannoServe.close'
+                  class='regular block'>
+                  #close
+                </a>
+                <a
+                  href='#TyrannoServe.constructor'
+                  class='regular block'>
+                  #constructor
+                </a>
+                <a
+                  href='#TyrannoServe.internalServerErrorDefault'
+                  class='regular block'>
+                  #internalServerErrorDefault
+                </a>
+                <a
+                  href='#TyrannoServe.listen'
+                  class='regular block'>
+                  #listen
+                </a>
+                <a
+                  href='#TyrannoServe.notFoundDefault'
+                  class='regular block'>
+                  #notFoundDefault
+                </a>
+                <a
+                  href='#TyrannoServe.serve'
+                  class='regular block'>
+                  #serve
+                </a>
+              <a
+                href='#addStaticPaths'
+                class='block bold'>
+                addStaticPaths
+              </a>
+              <a
+                href='#ResponseAugmenter'
+                class='block bold'>
+                ResponseAugmenter
+              </a>
+                <a
+                  href='#ResponseAugmenter.augment'
+                  class='regular block'>
+                  #augment
+                </a>
+                <a
+                  href='#ResponseAugmenter.constructor'
+                  class='regular block'>
+                  #constructor
+                </a>
+              <a
+                href='#constructor'
+                class='block bold'>
+                constructor
+              </a>
+              <a
+                href='#ResponseSender'
+                class='block bold'>
+                ResponseSender
+              </a>
+                <a
+                  href='#ResponseSender.constructor'
+                  class='regular block'>
+                  #constructor
+                </a>
+                <a
+                  href='#ResponseSender.content'
+                  class='regular block'>
+                  #content
+                </a>
+                <a
+                  href='#ResponseSender.data'
+                  class='regular block'>
+                  #data
+                </a>
+                <a
+                  href='#ResponseSender.doDefault'
+                  class='regular block'>
+                  #doDefault
+                </a>
+                <a
+                  href='#ResponseSender.file'
+                  class='regular block'>
+                  #file
+                </a>
+              <a
+                href='#TyrannoInput'
+                class='block bold'>
+                TyrannoInput
+              </a>
+                <a
+                  href='#TyrannoInput.fromArgv'
+                  class='regular block'>
+                  #fromArgv
+                </a>
+                <a
+                  href='#TyrannoInput.fromFile'
+                  class='regular block'>
+                  #fromFile
+                </a>
+                <a
+                  href='#TyrannoInput.fromInput'
+                  class='regular block'>
+                  #fromInput
+                </a>
+              <a
+                href='#getPieces'
+                class='block bold'>
+                getPieces
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        <div class='px2'>
+<div class='py1'><section class='py2 clearfix'>
+  <h2 id='TyrannoServe' class='mt0'>
+    TyrannoServe<span class='gray'>(input)</span>
+  </h2>
+  <p>Tyrannosaurus server. Does everything you want from a server. Defaults to a simple static server, but rest callbacks
+can be added later.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>input</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Instance members</h4>
+        <div class='collapsible' id='TyrannoServe.addListener'>
+          <a href='#TyrannoServe.addListener'>
+            <code>
+              #addListener<span class='gray'>(eventName, listener)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Adds a listener function to the given event name. Currently we only do close
+events, but we could add more.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.addListener' class='mt0'>
+                addListener<span class='gray'>(eventName, listener)</span>
+              </h2>
+              <p>Adds a listener function to the given event name. Currently we only do close
+            events, but we could add more.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>eventName</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The name of the event.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>listener</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{function} The callback to be called when the event happens.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.addPaths'>
+          <a href='#TyrannoServe.addPaths'>
+            <code>
+              #addPaths<span class='gray'>(urlPath, staticPaths)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Adds the given set of paths to the specified route. Note that if multiple static paths are specified they
+are treated as fallbacks.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.addPaths' class='mt0'>
+                addPaths<span class='gray'>(urlPath, staticPaths)</span>
+              </h2>
+              <p>Adds the given set of paths to the specified route. Note that if multiple static paths are specified they
+            are treated as fallbacks.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>urlPath</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The url path to listen on.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>staticPaths</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string|array} The set of static paths that this url should map to. When multiple are
+            specified, if a resource cannot be found in the first static path the next paths will be searched in
+            order.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.addRoute'>
+          <a href='#TyrannoServe.addRoute'>
+            <code>
+              #addRoute<span class='gray'>(method, path, callback)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Adds a route to the given method and path.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.addRoute' class='mt0'>
+                addRoute<span class='gray'>(method, path, callback)</span>
+              </h2>
+              <p>Adds a route to the given method and path.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>method</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The method. Should be GET, PUT, POST, DELETE, or PATCH.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>path</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The path. In general, a path should be a series of strings with slashes between, but
+            tyranno-serve also allows you to specify route variables by starting a folder with a colon. For example,
+            /users/:userId/products/:productId would allow any string to be specified for the userId and productId. In
+            addition, if you specify a path with two colons, it will consume all characters after including slashes (this
+            is how the static file server works.).
+            In general, multiple url definitions may conflict, (for example &apos;/users/:userId&apos; for getting user info but then
+            &apos;/users/:userId/products/:productId&apos; for getting a user&apos;s product). Tyranno-Serve will try to find the most
+            specific possible match for a particular url by matching folders. For example, if the user and product paths were
+            specified and nothing else, if you looked for &apos;/users/abc/products&apos; it would come out with not found. This is
+            because there was something specified under products but it required an id, and nothing was specified under
+            just products. &apos;/users/abc&apos; and &apos;users/abc/products/def&apos; would work as expected however.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>callback</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>A callback function that takes a request and a response object. The request and response object
+            are the same that would be received from the http.Server.listen command with some additions:</p>
+            <ul>
+            <li>The request object will have a routeParams variable added with the route parameters defined in the url.</li>
+            <li>The response object will have extra methods ok, notFound, badRequest, internalServerError, and redirect. Please
+            see the response augmenter for information about these.</li>
+            </ul>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.badRequestDefault'>
+          <a href='#TyrannoServe.badRequestDefault'>
+            <code>
+              #badRequestDefault<span class='gray'>(input)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Sets the default callback for bad request.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.badRequestDefault' class='mt0'>
+                badRequestDefault<span class='gray'>(input)</span>
+              </h2>
+              <p>Sets the default callback for bad request.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>input</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string|function} @see notFoundDefault.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.close'>
+          <a href='#TyrannoServe.close'>
+            <code>
+              #close<span class='gray'>(callback)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Turns off this server so that resources like ports and file watchers are released.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.close' class='mt0'>
+                close<span class='gray'>(callback)</span>
+              </h2>
+              <p>Turns off this server so that resources like ports and file watchers are released.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>callback</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{function} A callback function for when closing has started.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.constructor'>
+          <a href='#TyrannoServe.constructor'>
+            <code>
+              #constructor<span class='gray'>(input)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Constructs the tyranno serve. Can be constructed similarly to how it is used on the command line.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.constructor' class='mt0'>
+                constructor<span class='gray'>(input)</span>
+              </h2>
+              <p>Constructs the tyranno serve. Can be constructed similarly to how it is used on the command line.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>input</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string|object} Either a path to a json file to use for settings or an object of settings. Note
+            that this parameter is optional.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.internalServerErrorDefault'>
+          <a href='#TyrannoServe.internalServerErrorDefault'>
+            <code>
+              #internalServerErrorDefault<span class='gray'>(input)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Sets the default callback for internal server error.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.internalServerErrorDefault' class='mt0'>
+                internalServerErrorDefault<span class='gray'>(input)</span>
+              </h2>
+              <p>Sets the default callback for internal server error.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>input</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string|function} @see notFoundDefault.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.listen'>
+          <a href='#TyrannoServe.listen'>
+            <code>
+              #listen<span class='gray'>(callback)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Actually starts listening for incoming requests.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.listen' class='mt0'>
+                listen<span class='gray'>(callback)</span>
+              </h2>
+              <p>Actually starts listening for incoming requests.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>callback</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{function} A callback function for when listening has started.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.notFoundDefault'>
+          <a href='#TyrannoServe.notFoundDefault'>
+            <code>
+              #notFoundDefault<span class='gray'>(input)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Sets the default callback for not found.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.notFoundDefault' class='mt0'>
+                notFoundDefault<span class='gray'>(input)</span>
+              </h2>
+              <p>Sets the default callback for not found.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>input</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string|function} Either a string or a function. If it&apos;s a callback it is used directly. If it&apos;s
+            a string it is treated as a filename. WARNING: because the fallback and path mechanism is incompatible with this
+            this string must either be an absolute path or relative to the CWD. Otherwise it can&apos;t find it.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoServe.serve'>
+          <a href='#TyrannoServe.serve'>
+            <code>
+              #serve<span class='gray'>(request, response)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Serves a particular request for this server object. Does routing logic and adds
+utility functions to the request and response objects before they are passed
+into the callback registered for a particular route.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoServe.serve' class='mt0'>
+                serve<span class='gray'>(request, response)</span>
+              </h2>
+              <p>Serves a particular request for this server object. Does routing logic and adds
+            utility functions to the request and response objects before they are passed
+            into the callback registered for a particular route.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>request</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The incoming http request.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>response</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The response object to send data to.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='addStaticPaths' class='mt0'>
+    addStaticPaths<span class='gray'>(server, urlPath, staticPaths, fileWatcher)</span>
+  </h2>
+  <p>Adds the given static paths to the server using the file watcher to watch for changes.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>server</strong>
+          :
+          <span class='force-inline'>
+            <p>{TyrannoServe} The server to add the static file watch to</p>
+
+          </span>
+        </li>
+        <li> <strong>urlPath</strong>
+          :
+          <span class='force-inline'>
+            <p>{string} The url path to add to</p>
+
+          </span>
+        </li>
+        <li> <strong>staticPaths</strong>
+          :
+          <span class='force-inline'>
+            <p>{string|Array<string>} The static paths to add.</p>
+
+          </span>
+        </li>
+        <li> <strong>fileWatcher</strong>
+          :
+          <span class='force-inline'>
+            <p>{FileWatcher} The fie watcher for watching.</p>
+
+          </span>
+        </li>
+    </ul>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='ResponseAugmenter' class='mt0'>
+    ResponseAugmenter<span class='gray'>(server)</span>
+  </h2>
+  <p>The ResponseAugmenter is responsible for augmenting responses that come in throught the server with utility functions.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>server</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Instance members</h4>
+        <div class='collapsible' id='ResponseAugmenter.augment'>
+          <a href='#ResponseAugmenter.augment'>
+            <code>
+              #augment<span class='gray'>(request, response)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Actually augments the response. The augmented functions are: ok, notFound, badRequest, internalServerError, and
+redirect. With the exception of redirect, all of these return a ResponseSender object. Redirect takes a redirectUrl
+string as an argument. NotFound, BadRequest, and InternalServerError all have defaults that can be set up.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='ResponseAugmenter.augment' class='mt0'>
+                augment<span class='gray'>(request, response)</span>
+              </h2>
+              <p>Actually augments the response. The augmented functions are: ok, notFound, badRequest, internalServerError, and
+            redirect. With the exception of redirect, all of these return a ResponseSender object. Redirect takes a redirectUrl
+            string as an argument. NotFound, BadRequest, and InternalServerError all have defaults that can be set up.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>request</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                    <li> <strong>response</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The object to augment.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='ResponseAugmenter.constructor'>
+          <a href='#ResponseAugmenter.constructor'>
+            <code>
+              #constructor<span class='gray'>(server)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Constructs the augmenter with default values for notFound, badRequest, and internalServerError.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='ResponseAugmenter.constructor' class='mt0'>
+                constructor<span class='gray'>(server)</span>
+              </h2>
+              <p>Constructs the augmenter with default values for notFound, badRequest, and internalServerError.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>server</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='constructor' class='mt0'>
+    constructor<span class='gray'>(wait, ignorePaths)</span>
+  </h2>
+  
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>wait</strong>
+          :
+          <span class='force-inline'>
+            <p>{Number} Milliseconds to wait between the time a change is detected and the time a
+reload command is sent.</p>
+
+          </span>
+        </li>
+        <li> <strong>ignorePaths</strong>
+          :
+          <span class='force-inline'>
+            <p>{false|[string]}</p>
+
+          </span>
+        </li>
+    </ul>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='ResponseSender' class='mt0'>
+    ResponseSender<span class='gray'>(server, request, response, statusCode, defaultCallback)</span>
+  </h2>
+  <p>The ResponseSender is a utility class that allows you to easily send data with
+a particular response code.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>server</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li> <strong>request</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li> <strong>response</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li> <strong>statusCode</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+        <li> <strong>defaultCallback</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Instance members</h4>
+        <div class='collapsible' id='ResponseSender.constructor'>
+          <a href='#ResponseSender.constructor'>
+            <code>
+              #constructor<span class='gray'>(server, request, response, statusCode, defaultCallback)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Constructor.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='ResponseSender.constructor' class='mt0'>
+                constructor<span class='gray'>(server, request, response, statusCode, defaultCallback)</span>
+              </h2>
+              <p>Constructor.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>server</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{TyrannoServe} The server object; used for settings.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>request</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The request object to use</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>response</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The response object to use.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>statusCode</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{number} The status code to send when we write a response.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>defaultCallback</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{function} Default function to call for this type.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='ResponseSender.content'>
+          <a href='#ResponseSender.content'>
+            <code>
+              #content<span class='gray'>(value, mimeType)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Sends the given content to the caller as a response.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='ResponseSender.content' class='mt0'>
+                content<span class='gray'>(value, mimeType)</span>
+              </h2>
+              <p>Sends the given content to the caller as a response.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>value</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The value to send.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>mimeType</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The mime type to send.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='ResponseSender.data'>
+          <a href='#ResponseSender.data'>
+            <code>
+              #data<span class='gray'>(value)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Sends json data back to the caller as a response.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='ResponseSender.data' class='mt0'>
+                data<span class='gray'>(value)</span>
+              </h2>
+              <p>Sends json data back to the caller as a response.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>value</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>Any object to be sent.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='ResponseSender.doDefault'>
+          <a href='#ResponseSender.doDefault'>
+            <code>
+              #doDefault<span class='gray'></span>
+            </code>
+            <span class='force-inline'>
+              <p>Does the default action if available.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='ResponseSender.doDefault' class='mt0'>
+                doDefault<span class='gray'></span>
+              </h2>
+              <p>Does the default action if available.</p>
+            
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='ResponseSender.file'>
+          <a href='#ResponseSender.file'>
+            <code>
+              #file<span class='gray'>(filePath, nextCallback)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Serves a file from the given location.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='ResponseSender.file' class='mt0'>
+                file<span class='gray'>(filePath, nextCallback)</span>
+              </h2>
+              <p>Serves a file from the given location.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>filePath</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The path of the file in question.</p>
+            
+                      </span>
+                    </li>
+                    <li> <strong>nextCallback</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{function} A function to call if you get a not found.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='TyrannoInput' class='mt0'>
+    TyrannoInput<span class='gray'>(settingsFile)</span>
+  </h2>
+  <p>Class for interpreting settings files and settings objects and converting them into a standard, easy to use format.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>settingsFile</strong>
+          :
+          <span class='force-inline'>
+            
+          </span>
+        </li>
+    </ul>
+      <h4>Instance members</h4>
+        <div class='collapsible' id='TyrannoInput.fromArgv'>
+          <a href='#TyrannoInput.fromArgv'>
+            <code>
+              #fromArgv<span class='gray'>(argv)</span>
+            </code>
+            <span class='force-inline'>
+              <p>From argv converts an argument input into a standard settings json object that can be used by tyranno-serve.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoInput.fromArgv' class='mt0'>
+                fromArgv<span class='gray'>(argv)</span>
+              </h2>
+              <p>From argv converts an argument input into a standard settings json object that can be used by tyranno-serve.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>argv</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>The command line arguments.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code></code>
+                  :
+                  <span class='force-inline'>
+                    <p>The json-like argument object.</p>
+            
+                  </span>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoInput.fromFile'>
+          <a href='#TyrannoInput.fromFile'>
+            <code>
+              #fromFile<span class='gray'>(settingsFile)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Creates a settings object from the given filename.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoInput.fromFile' class='mt0'>
+                fromFile<span class='gray'>(settingsFile)</span>
+              </h2>
+              <p>Creates a settings object from the given filename.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>settingsFile</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string} The filename to load the settings from.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='TyrannoInput.fromInput'>
+          <a href='#TyrannoInput.fromInput'>
+            <code>
+              #fromInput<span class='gray'>(input)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Instantiates a settings object from an arbitrary input parameter.</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='TyrannoInput.fromInput' class='mt0'>
+                fromInput<span class='gray'>(input)</span>
+              </h2>
+              <p>Instantiates a settings object from an arbitrary input parameter.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li> <strong>input</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>{string|object} If a string it reads the filename, otherwise it loads and normalizes it as an object.</p>
+            
+                      </span>
+                    </li>
+                </ul>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='getPieces' class='mt0'>
+    getPieces<span class='gray'>(pathname, method)</span>
+  </h2>
+  <p>Splits a string path into an array based on the / character and prepends the
+method.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>pathname</strong>
+          :
+          <span class='force-inline'>
+            <p>The string path to be split.</p>
+
+          </span>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>method</strong>
+          :
+          <span class='force-inline'>
+            <p>The method of the http request. Should be GET, PUT, POST, etc</p>
+
+          </span>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code></code>
+      :
+      <span class='force-inline'>
+        <p>An array of split strings.</p>
+
+      </span>
+</section>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>

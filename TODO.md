@@ -1,0 +1,64 @@
+## TODO For V 0.1.0
+- x Automatic browser open
+- x tyranno-serve
+- x Format like a champ: https://github.com/expressjs/serve-static/blob/master/index.js
+- x Automatic refresh
+  - x Switch to ""send"" instead of node-static
+  - x If we should load the file, do stupid file sending (read the whole file, do a regex, then send the modified file back).
+  - x Actually listen for the websocket
+  - x Deal with send error, directory
+- x Response.internalServer error and notFound defaults. Routeparam defaults. Create ResponseAugmenter with mixin(response)
+- x Switch to adding route params to the request object
+- x Add handlers for send''s error, and directory
+- x Load from settings file
+    - x settings file specified with --settings (use base directory of this file)
+    - x Default settings file detection: tyranno.json
+    - x be sure absolute paths work
+- x Loading settings through settings file in code should work the same as from CLI, need to have common code
+- x Filepath fallback
+- x tests
+  - x test a txt file can be served
+  - x Turn off watchr on close
+  - x Test javascript insertion (just look for script tag)
+  - x test fallback
+  - x test most specific first rule
+  - x ''/users/:userId'' and ''/users/:userId/products/:productId/''
+- x Refactor: multiple files
+- c Support multiple variable names at the same location
+- c Multiple settings files with include?
+- x samples
+- x Console variables. Console variables are the process of converting what comes in on the command line to the JSON type object we use from the settings files.
+  - x scour live-server for all args and provide comparable implementations, if not better
+  - x host
+  - x no-browser
+  - x quiet
+  - x paths
+  - ? (doesn''t seem to work though I am passing it around right) ignore-paths in watchr (filenames passed in from CLI to watcher)
+  - x Pass wait into file watcher
+  - x Version: var packageJson = require(''./package.json'');
+  - x Help CLI: documentation of all commands must be present in readme and in -h and --help
+  - x Open options (open can be specified multiple times)
+  - x Command line overwrites settings file (with test)
+  - x Port settings
+  - x no-listen
+  - x paths: fallback on CLI
+  - x If a command line argument is presented without a label, add it to the '' path (uniquely)
+  - x args settings file
+- x Full documentation: it doesn''t look like there is an awesome doc generator but jsdoc might be ok if it supports classes, otherwise just write the doc.
+- c coverage: istanbul \_mocha
+- x Settable custom 404, including command line path (and 401, 403, and 500 as well)
+    - x ResponseSender should have a file method that allows you to send files over.
+    - x What if you notfound something that doesn''t exist?
+    - x Should be able to pass notfound, etc in on CLI
+- x export mime, use send''s mime.
+- x Rework readme
+- x Add per path listen options.
+- x Use in a personal project
+    - x BUG: if ends in a slash, should still be able to find
+- x When paths is not passed in CWD is not used
+- x icon
+- upload to git
+- upload to npm
+
+## Todo for V 0.2.0
+- Some commands should have single letter shortcuts

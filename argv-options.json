@@ -1,0 +1,62 @@
+{
+  "bad-request": {
+    "name": "badRequest",
+    "description": "The location of a default file to serve for 400 bad request."
+  },
+  "help": {
+    "type": "flag",
+    "description": "Prints out this help message."
+  },
+  "hostname": {
+    "description": "The hostname to listen on."
+  },
+  "internal-server-error": {
+    "name": "internalServerError",
+    "description": "The location of a default file to serve for 500 internal server error."
+  },
+  "no-browser": {
+    "type": "flag",
+    "name": "noBrowser",
+    "description": "If present, no browser window will be opened when the server is started."
+  },
+  "no-listen": {
+    "type": "flag",
+    "name": "noListen",
+    "description": "If present, no listening javascript will be added and no web socket will be opened."
+  },
+  "no-listen-path": {
+    "type": "array",
+    "name": "noListenPaths",
+    "default": false,
+    "description": "One or more paths for the file watching system to ignore.",
+    "disabled": true
+  },
+  "not-found": {
+    "name": "notFound",
+    "description": "The location of a default file to serve for 404 not found."
+  },
+  "open": {
+    "type": "array",
+    "default": [""],
+    "description": "Use this to specify which pages to open."
+  },
+  "path": {
+    "name": "paths",
+    "default": { "": "" },
+    "description": "Specify one or more --path options to tell tyranno from where to serve files. Paths are to be of the form <<server path>>=<<file path>>. You may specify as many paths as you want. If you specify more than one file path to the same server path, later file paths will act as fall backs. Paths are consumed in a most specific first order. For example: 'tyranno-server --path =src --path angular2=node_modules/angular2' will first try to match incoming requests to angular2 because it is more specific and then will match anythig else to the src folder."
+  },
+  "port": {
+    "description": "Specify which port to listen on. If no port is specified, tyranno-serve will try a random port."
+  },
+  "quiet": {
+    "type": "flag",
+    "description": "Suppress all command line output."
+  },
+  "settings": {
+    "description": "The location of the json formatted settings file to use. Can be used instead of specifying options as arguments."
+  },
+  "version": {
+    "type": "flag",
+    "description": "Print the version and exit."
+  }
+}
