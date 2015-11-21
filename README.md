@@ -1,6 +1,6 @@
 # Tyranno Serve
 
-![Curdely Drawn Dinosaur](icon.jpg)
+![Curdely Drawn Dinosaur](https://raw.githubusercontent.com/LukeMagill/tyranno-serve/master/icon.JPG)
 
 Tyranno Serve is a server written in nodejs. It's purpose is to function both as a super lightweight static file server but to be flexible enough to expand to a more powerful system as the developer's needs increase. It is also meant to provide as many commonly used features as is reasonably possible and make everything very easy to access.
 
