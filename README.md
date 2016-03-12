@@ -103,9 +103,8 @@ var server = new TyrannoServer({ // could also be the string "tyranno.json" whic
 });
 
 var db = new Db();
-server.folder('/api/v1.0')
-    .get('/users/:userId', db.get)
-    .post('/users/:userId', db.post);
+server.addRoute('GET', '/api/v1.0/users/:userId', db.get);
+server.addRoute('POST', '/api/v1.0/users/:userId', db.post);
 
 // Write your database code here
 function Db() {
@@ -151,6 +150,10 @@ If you edit locally and want to test the command, do this:
 npm install -g .
 
 npm link .
+
+<<cd into other directory>>
+npm uninstall tyranno-serve
+npm link tyranno-serve
 ```
 
 ## Local testing

@@ -146,7 +146,7 @@ class TyrannoServe {
     if (!METHODS.has(method)) {
       throw new Error("Invalid method supplied.");
     }
-    
+
     var pieces = getPieces(pathname, method);
     var current = this._routes;
     var hasDoubleColon = false;
@@ -286,7 +286,7 @@ class TyrannoServe {
     }
 
     this._server.listen(this.port, this.hostname, 511, callback);
-    
+
     _.each(this._settings.open, function(pathname) {
       open("http://127.0.0.1:" + self.port + "/" + normalizePath(pathname));
     });
@@ -407,6 +407,12 @@ class ResponseSender {
     this._response = response;
     this._statusCode = statusCode;
     this._defaultCallback = defaultCallback;
+    this._headers = { };
+  }
+
+  setHeader(key, value) {
+    this._response.setHeader(key, value);
+    return this;
   }
 
   /**
@@ -416,7 +422,7 @@ class ResponseSender {
    * @param mimeType {string} The mime type to send.
    */
   content(value, mimeType) {
-    this._response.writeHead(this._statusCode, { 'Content-Type': mimeType });
+    this._writeHead(mimeType);
     this._response.write(value);
     this._response.end();
   }
@@ -427,7 +433,7 @@ class ResponseSender {
    * @param value Any object to be sent.
    */
   data(value) {
-    this._response.writeHead(this._statusCode, { 'Content-Type': 'application/json' });
+    this._writeHead('application/json');
     this._response.write(JSON.stringify(value));
     this._response.end();
   }
@@ -450,6 +456,10 @@ class ResponseSender {
       throw new Error("There is no default callback for this action (" + this._statusCode + ").");
     }
     this._defaultCallback(this._response);
+  }
+
+  _writeHead(mimeType) {
+    this._response.writeHead(this._statusCode, { 'Content-Type': mimeType });
   }
 }
 
