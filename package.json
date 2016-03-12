@@ -1,6 +1,6 @@
 {
   "name": "tyranno-serve",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Useful and easy http server that can do both rest and static files.",
   "main": "tyranno-serve.js",
   "bin": {
